@@ -11,9 +11,10 @@
                    (execute [this context]
                      (~(:handler job-desc))))
          job# (j/build (j/of-type record#)
-                       (j/with-identity (j/key (.getName record#))))
+                       ;;(j/with-identity (j/key (.getName record#)))
+                       )
          trigger# (t/build
-                   (t/with-identity (t/key (str (.getName record#) "-trigger")))
+                   ;;(t/with-identity (t/key (str (.getName record#) "-trigger")))
                    (t/start-now)
                    (t/with-schedule (schedule (cron-schedule ~(:schedule job-desc)))))]
 
